@@ -3,6 +3,13 @@
   <groupId>Specify</groupId>
   <artifactId>Specify</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<java.version>1.8</java.version>
+<maven.compiler.version>3.8.1</maven.compiler.version>
+<maven.surefire.version>2.22.2</maven.surefire.version>
+</properties>
+
   <dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -58,10 +65,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>${maven.compiler.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
+				<configuration>
+					
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/com/shopify/testrunner/testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
